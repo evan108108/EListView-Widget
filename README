@@ -1,3 +1,41 @@
+Extends CListView for selecting `List View' page size.
+You can use EListView in place of CListView (Takes all the same Params and add a few new ones.
+
+You will get a select menu with a list of various page sizes that you define while maintaining the current start position.
+
+Params:
+  
+  itemsPerPageMenu 
+    Sets the values for the `Items Per Page Menu'
+    Example: 'itemsPerPageMenu'=>array(10,20,50,100,200,500),
+  
+  itemsPerPageMenuItemOptionPrefix 
+    Sets the display prefix in the `Items Per Page Menu' PREFIX X SUFFIX ie VIEW 10 Per Page
+    Example: 'itemsPerPageMenuItemOptionPrefix'=>'View'
+  
+  itemsPerPageMenuItemOptionSufix
+    Sets the display suffix in the `Items Per Page Menu' PREFIX X SUFFIX ie VIEW 10 Per Page
+    Example: 'itemsPerPageMenuItemOptionSufix'=>'Per Page'
+    
+  itemsPerPageMenuClass
+    Sets the Class of the `Items Per Page Menu' <select class=".$itemsPerPageMenuClass"...
+    Example: 'itemsPerPageMenuClass'=>'ippm'
+
+  scrollToItem
+    Array that Sets the scroll to item in view attributes. This is usefull when swithing between page sizes.
+      on => When to scroll. 
+        Choices: ['ALWAYS', 'MISTACH', 'NEVER'] 
+      containerEntity => The Dom element to scroll
+      itemClass => The Class of the Dom Elment that contain the individual items.
+    Example: 'scrollToItem'=>array('on'=>'MISMATCH', 'containerEntity'=>'body', 'itemClass'=>'view')
+    
+  renderMenuInAltDomElmWithID
+    Sets the #ID of the DOM element where you would like to render the menu.
+      By default (false) the `Items Per Page Menu' will be rendered in the summary section.
+    Example: 'renderMenuInAltDomElmWithID'=>false, //use and DOM ELEMENT ID IE "myID"
+
+SAMPLE USAGE:
+
 <?php $this->widget('ext.widgets.EListView.EListView', array(
 	'dataProvider'=>$dataProvider,
   'itemView'=>'_view',
@@ -7,5 +45,4 @@
   'itemsPerPageMenuClass'=>'ippm',
   'scrollToItem'=>array('on'=>'MISMATCH', 'containerEntity'=>'body', 'itemClass'=>'view'),
   'renderMenuInAltDomElmWithID'=>false, //use and DOM ELEMENT ID IE "myID"
-  //scrollToTem['on'] choices ['ALWAYS', 'MISMATCH', 'NEVER']
 )); ?>
