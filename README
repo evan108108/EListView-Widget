@@ -1,5 +1,5 @@
 Extends Yii Frameworks CListView for selecting `List View' page size.
-You can use EListView in place of CListView (Takes all the same Params and add a few new ones.
+You can use EListView in place of CListView (Takes all the same Params and add a few new ones).
 
 You will get a select menu with a list of various page sizes that you define while maintaining the current start position.
 
