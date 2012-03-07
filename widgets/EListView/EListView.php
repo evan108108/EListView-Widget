@@ -1,5 +1,13 @@
 <?php
-  
+  /**
+   * Created by Evan Frohlch @ Control Group
+   * http://evannyc.com
+   * http://controlgroup.com
+   * http://www.yiiframework.com/extension/elistview/
+   * https://github.com/evan108108/EListView-Widget
+   * http://www.yiiframework.com/user/5966/
+   */ 
+
   Yii::import('zii.widgets.CListView');
 
   class EListView extends CListView
@@ -50,7 +58,7 @@
       $this->pageSize                 = (isset($_GET['pageSize']))? $_GET['pageSize'] : $origIPP;
       $pageVar                        = $this->dataProvider->getPagination()->pageVar;
       $curPage                        = (isset($_GET[$pageVar]))? $_GET[$pageVar] : 1;
-      $this->start                          = (($curPage -1)*$origIPP+1);
+      $this->start                    = (($curPage -1)*$origIPP+1);
       $_GET[$pageVar]                 = (intval($this->start/$this->pageSize)+1);
       $this->dataProvider->pagination = CMap::mergeArray(array(
                                           'pageSize'=>$this->pageSize)
