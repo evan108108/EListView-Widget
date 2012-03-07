@@ -25,6 +25,7 @@
 
     public function init()
     {
+      
       $this->calcStartPage();
       parent::init();
     }
@@ -49,9 +50,8 @@
       $this->pageSize                 = (isset($_GET['pageSize']))? $_GET['pageSize'] : $origIPP;
       $pageVar                        = $this->dataProvider->getPagination()->pageVar;
       $curPage                        = (isset($_GET[$pageVar]))? $_GET[$pageVar] : 1;
-      $start                          = (($curPage -1)*$origIPP+1);
-      $this->start                    = $start;
-      $_GET[$pageVar]                 = (intval($start/$this->pageSize)+1);
+      $this->start                          = (($curPage -1)*$origIPP+1);
+      $_GET[$pageVar]                 = (intval($this->start/$this->pageSize)+1);
       $this->dataProvider->pagination = CMap::mergeArray(array(
                                           'pageSize'=>$this->pageSize)
                                          , $this->dataProvider->getPagination()
@@ -137,7 +137,7 @@
 
       if(count($this->itemsPerPageMenu))
       {
-        $ippm .= "<span id=\"ippmID\"><select class=\"" . $this->itemsPerPageMenuClass . "\" name=\"" . $this->itemsPerPageMenuClass . "\" onChange=\"document.location='index?" .  $this->dataProvider->getPagination()->pageVar . "=" . $_GET[($this->dataProvider->getPagination()->pageVar)] . "&pageSize='+this.value\">";
+        $ippm .= "<span id=\"ippmID\"><select class=\"" . $this->itemsPerPageMenuClass . "\" name=\"" . $this->itemsPerPageMenuClass . "\" onChange=\"document.location='" . Yii::app()->controller->createUrl(Yii::app()->controller->action->id) . "?" .  $this->dataProvider->getPagination()->pageVar . "=" . $_GET[($this->dataProvider->getPagination()->pageVar)] . "&pageSize='+this.value\">";
         for ($i = 0; $i < count($this->itemsPerPageMenu); $i++) {
            $ippm .= "\n\t<option value=\"" . $this->itemsPerPageMenu[$i] . "\" " . ( ($curPage == $this->itemsPerPageMenu[$i])? "SELECTED" : '' ) . ">" . $this->itemsPerPageMenuItemOptionPrefix . " " . $this->itemsPerPageMenu[$i] . " " . $this->itemsPerPageMenuItemOptionSufix . "</option>";
         }
