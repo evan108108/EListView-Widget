@@ -16,8 +16,8 @@
     //--------------------------------------------------------------------------------------------------------------
     public $itemsPerPageMenu                 = array(); // [10,20,50,100,200,500]
     public $itemsPerPageMenuClass            = "ippm";  // Class name to aply to Item Per Page PullDown Menu 
-    public $itemsPerPageMenuItemOptionPrefix = "";      // PREFIX X SUFIX ie VIEW 10 Per Page
-    public $itemsPerPageMenuItemOptionSufix  = "";      // PREFIX X SUFIX ie VIEW 20 Per Page
+    public $itemsPerPageMenuItemOptionPrefix = "";      // PREFIX X Prefix ie VIEW 10 Per Page
+    public $itemsPerPageMenuItemOptionSufix  = "";      // PREFIX X Sufix ie VIEW 20 Per Page
     public $scrollToItem                     = array(
                                                   'on'              =>'MISMATCH' // ['ALWAYS', 'MISTACH', 'NEVER']
                                                 , 'containerEntity' =>'body'     // DOM ELEMENT TO SCROLL
